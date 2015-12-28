@@ -1,4 +1,6 @@
 """
+_module_: `mast.hashes`
+
 This module provides a number of functions which are wrappers
 around Python's [hashlib](https://docs.python.org/2/library/hashlib.html)
 library.
@@ -22,22 +24,32 @@ requested hash as a Python `str`.
 import hashlib
 
 
-def _get_file_hash(filename, obj):
-    """Given filename, returns the hash of the file as a string containing
+def _get_file_hash(filename, cls):
+    """
+    _function_: `mast.hashes._get_file_hash(filename, cls)`
+
+    Given filename, returns the hash of the file as a string containing
     only hexadecimal digits. The algorithm used depends on the value passed
-    to obj, which should be a  constructor for a hash algorithm available
+    to `cls`, which should be a  constructor for a hash algorithm available
     through hashlib. Convenience functions for the constructors which are
     always present are provided and listed here:
 
-    * get_md5
-    * get_sha1
-    * get sha224
-    * get_sha256
-    * get_sha384
-    * get_sha512
+    * `get_md5`
+    * `get_sha1`
+    * `get sha224`
+    * `get_sha256`
+    * `get_sha384`
+    * `get_sha512`
 
     More may be available depending on your version of OpenSSL, but these are
-    always present."""
+    always present.
+
+    Parameters:
+
+    * `filename`: The file for which to calculate the hash.
+    * `cls`: The class constructor to use to build the hash. It is
+    expected to behave like a class from `hashlib`.
+    """
     _hash = obj()
     with open(filename, 'rb') as fin:
         _buffer = fin.read(65536)
@@ -49,7 +61,13 @@ def _get_file_hash(filename, obj):
 
 def get_md5(filename):
     """
+    _function_: `mast.hashes.get_md5(filename)`
+
     Return the md5 hash of filename
+
+    Parameters:
+
+    * `filename`: The file for which to calculate the hash.
 
     Usage:
 
@@ -63,7 +81,13 @@ def get_md5(filename):
 
 def get_sha1(filename):
     """
+    _function_: `mast.hashes.get_sha1(filename)`
+
     Return the sha1 hash of filename
+
+    Parameters:
+
+    * `filename`: The file for which to calculate the hash.
 
     Usage:
 
@@ -77,7 +101,13 @@ def get_sha1(filename):
 
 def get_sha224(filename):
     """
+    _function_: `mast.hashes.get_sha224(filename)`
+
     Return the sha224 hash of filename
+
+    Parameters:
+
+    * `filename`: The file for which to calculate the hash.
 
     Usage:
 
@@ -91,7 +121,13 @@ def get_sha224(filename):
 
 def get_sha256(filename):
     """
+    _function_: `mast.hashes.get_sha256(filename)`
+
     Return the sha256 hash of filename
+
+    Parameters:
+
+    * `filename`: The file for which to calculate the hash.
 
     Usage:
 
@@ -105,7 +141,13 @@ def get_sha256(filename):
 
 def get_sha384(filename):
     """
+    _function_: `mast.hashes.get_sha384(filename)`
+
     Return the sha384 hash of filename
+
+    Parameters:
+
+    * `filename`: The file for which to calculate the hash.
 
     Usage:
 
@@ -119,7 +161,13 @@ def get_sha384(filename):
 
 def get_sha512(filename):
     """
+    _function_: `mast.hashes.get_sha512(filename)`
+
     Return the sha512 hash of filename
+
+    Parameters:
+
+    * `filename`: The file for which to calculate the hash.
 
     Usage:
 
