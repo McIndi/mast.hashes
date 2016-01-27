@@ -50,7 +50,7 @@ def _get_file_hash(filename, cls):
     * `cls`: The class constructor to use to build the hash. It is
     expected to behave like a class from `hashlib`.
     """
-    _hash = obj()
+    _hash = cls()
     with open(filename, 'rb') as fin:
         _buffer = fin.read(65536)
         while len(_buffer) > 0:
