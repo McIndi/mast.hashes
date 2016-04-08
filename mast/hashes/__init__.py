@@ -22,7 +22,9 @@ of a file and will return the hexadecimal representation of the
 requested hash as a Python `str`.
 """
 import hashlib
+import os
 
+__version__ = "{}-0".format(os.environ["MAST_VERSION"])
 
 def _get_file_hash(filename, cls):
     """
